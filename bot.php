@@ -26,10 +26,10 @@ if (!is_null($events['events'])) {
 
 			// Build message to reply back
 			
-			if (strpos($text,'สวัสดี') != false or 
-				strpos($text,'หวัดดี') != false or 
-				strpos(strtoupper($text),'HELLO') != false or 
-				strpos(strtoupper($text),'HI') != false) {
+			if (strpos($text,'สวัสดี') !== false or 
+				strpos($text,'หวัดดี') !== false or 
+				strpos(strtoupper($text),'HELLO') !== false or 
+				strpos(strtoupper($text),'HI') !== false) {
 				$ret_text = 'สวัสดีครับ';
 			} else {
 				$ret_text = $text;
