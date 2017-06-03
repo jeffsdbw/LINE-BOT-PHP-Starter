@@ -28,7 +28,7 @@ if (!is_null($events['events'])) {
 			
 			if (strpos($text,"สวัสดี") != false or strpos($text,"หวัดดี") != false or strpos(strtoupper($text),"HELLO") != false or strpos(strtoupper($text),"HI") != false) {
 				$ret_text = 'สวัสดีครับ';
-			} else if {
+			} elseif {
 				$ret_text = $text;
 			}
 
