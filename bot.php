@@ -30,16 +30,73 @@ if (!is_null($events['events'])) {
 				strpos($text,'หวัดดี') !== false or 
 				strpos(strtoupper($text),'HELLO') !== false or 
 				strpos(strtoupper($text),'HI') !== false) {
-				$ret_text = 'สวัสดีครับ';
+				$messages = [
+					'type' => 'text',
+					'text' => 'สวัสดีครับ'
+				];
+			} elseif (strpos(strtoupper($text),'CAROUSEL ') !== false)) {
+				$messages =
+				{
+				  "type": "template",
+				  "altText": "this is a carousel template",
+				  "template": {
+				      "type": "carousel",
+				      "columns": [
+				          {
+				            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+				            "title": "this is menu",
+				            "text": "description",
+				            "actions": [
+				                {
+				                    "type": "postback",
+				                    "label": "Buy",
+				                    "data": "action=buy&itemid=111"
+				                },
+				                {
+				                    "type": "postback",
+				                    "label": "Add to cart",
+				                    "data": "action=add&itemid=111"
+				                },
+				                {
+				                    "type": "uri",
+				                    "label": "View detail",
+				                    "uri": "http://example.com/page/111"
+				                }
+				            ]
+				          },
+				          {
+				            "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+				            "title": "this is menu",
+				            "text": "description",
+				            "actions": [
+				                {
+				                    "type": "postback",
+				                    "label": "Buy",
+				                    "data": "action=buy&itemid=222"
+				                },
+				                {
+				                    "type": "postback",
+				                    "label": "Add to cart",
+				                    "data": "action=add&itemid=222"
+				                },
+				                {
+				                    "type": "uri",
+				                    "label": "View detail",
+				                    "uri": "http://example.com/page/222"
+				                }
+				            ]
+				          }
+				      ]
+				  }
+				}
+
 			} else {
-				$ret_text = $text;
+				$messages = [
+					'type' => 'text',
+					'text' => $text
+				];
+
 			}
-
-			$messages = [
-				'type' => 'text',
-				'text' => $ret_text
-			];
-
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
