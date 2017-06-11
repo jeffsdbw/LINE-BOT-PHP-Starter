@@ -35,7 +35,8 @@ if (!is_null($events['events'])) {
 					'text' => 'สวัสดีครับ'
 				];
 			elseif (strpos(strtoupper($text),'TEST') !== false)) {
-			$messages = [
+			$messages =
+				{
 				  "type": "template",
 				  "altText": "this is a carousel template",
 				  "template": {
@@ -87,6 +88,7 @@ if (!is_null($events['events'])) {
 				          }
 				      ]
 				  }
+				}
 			} else {
 				$messages = [
 					'type' => 'text',
